@@ -1,0 +1,22 @@
+.modal{
+  
+}
+
+.modal__image-fade{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 9;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal__image-fade.active {
+    opacity: 1;
+    visibility: visible;
+  }
+

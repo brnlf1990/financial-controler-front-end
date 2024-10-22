@@ -1,0 +1,57 @@
+.navigation__container{
+    display: flex;
+    flex-direction: column;
+    width: 265px;
+    height: 300px;
+    background-color: rgba(26, 23, 65, 1);
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.navitation__header_image{
+
+}
+
+.navigation__general{
+    font-family: 'Exo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    color: #55BED2;
+}
+
+.navitation__dashboard{
+
+    width: 188px;
+    height: 24px;
+    color: #FFFFFF;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+}
+
+.navitation__tracking_list{
+    width: 188px;
+    height: 24px;
+    color: #FFFFFF;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+}
+
+.navitation__logout{
+    width: 188px;
+    height: 24px;
+    color: #FFFFFF;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+}

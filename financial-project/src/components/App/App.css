@@ -1,38 +1,70 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+body {
+  margin: auto;
+  background-color:rgba(41, 38, 78, 1);
+  color: #fff;
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-size: 17px;
+  font-weight: 500;
+  min-width: 1170px;
+  max-width: 1280px;
+    
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .App{
+    display: grid;
+    grid-template-rows: 5% 21% 17% 17% 25%;
+    grid-template-columns: 26% 70%;
+    max-height: 100%;
+    grid-template-areas:
+    "menu header "
+    "menu calendar"
+    "current-balance calendar"
+    "current-cost list"
+    "news list";
   }
-  to {
-    transform: rotate(360deg);
-  }
+.header{
+  grid-area:header;
+  background-color:aquamarine;
 }
+
+  .navitagion{
+    grid-area: menu;
+    background-color: #f0f0f0;
+  }
+  .calendar{
+    grid-area: calendar;
+    background-color: #f0f0f0;
+  }
+  
+  .cost_list {
+    grid-area:list;
+  }
+
+.current_balance{
+  grid-area: current-balance;
+  background-color: aliceblue;
+}
+
+
+  .current_cost{
+    grid-area: current-cost;
+    background-color: aliceblue;
+
+
+  }
+  .news{
+    grid-area: news;
+    background-color: aqua;
+  }
+  
+  @media screen and (min-width: 320px) and (max-width: 880px) {
+    .page {
+      font-family: "Inter", Arial, sans-serif;
+      font-style: normal;
+      font-size: 24px;
+      background-color: rgba(0, 0, 0, 1);
+      min-width: 320px;
+      margin: auto;
+    }
+  }
+  

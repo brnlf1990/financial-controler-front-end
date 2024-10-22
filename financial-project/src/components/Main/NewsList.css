@@ -1,0 +1,15 @@
+.news__list{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+.news__listed{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    justify-self: baseline;
+    max-width: 100%;
+
+}
+

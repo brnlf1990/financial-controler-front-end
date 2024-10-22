@@ -1,0 +1,12 @@
+.day-card:hover {
+    background-color: #e6e6e6;
+  }
+  
+  .day-card--inactive {
+    color: #ccc;
+  }
+  
+  .day-card--today {
+    border: 2px solid #007bff;
+    font-weight: bold;
+  }
