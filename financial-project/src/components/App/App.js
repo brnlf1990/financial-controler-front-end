@@ -1,51 +1,60 @@
-import './App.css';
-import React, { useState, useEffect } from "react";
-import { Route, Routes, useNavigate  } from "react-router-dom";
-import Header from "../Header/Header"
-import Calendar from '../Main/Calendar';
-import Navigation from '../Navigation/Navigation';
-import CostList from '../Main/CostList';
-import CurrentCost from '../Main/CurrentCost';
-import CurrentBalance from '../Main/CurrentBalance';
-import NewsList from '../Main/NewsList';
-import ModalListBalance from '../ModalWithForm/ModalListBalance';
+import React, { useState, useEffect } from 'react';
+import { Route, Routes, useNavigate } from 'react-router-dom';
+import MainPage from '../Main/MainPage';
+import Login from '../Login/Login';
+import Register from '../Register/Register';
+import ProtectedRoute from '../ProtectedRoute.js/ProtectedRoute';
+import {checkToken} from '../../utils/auth'
 function App() {
-  const [modalIsOpen, setModalIsOpen] = useState(false)
-  const [selectedDay, setSelectedDay] = useState(null)
-  const [activities, setActivities] = useState({})
+  const [loggedIn, setLoggedIn] = useState(false);
 
-  const openModal = (day) => {
+  const navigate = useNavigate()
 
-    
-    setSelectedDay(day);
-    setModalIsOpen(true);
-  }
+  useEffect(()=> {
+    const jwt = localStorage.getItem("token");
 
-  const closeModal = () => {
-    setModalIsOpen(false)
-    setSelectedDay(null)
-  }
-    
+    if (jwt){
+      checkToken(jwt)
+      .then((res) => {
+          if (res){
+            handleLoggedIn();
+            navigate('/main');            
+          }
+      })
+      .catch((error) => {
+        console.log(error);
+        
+      })
+    }
+  },[])
+
+
+
+  const handleLoggedIn = () => {
+    setLoggedIn(true);
+  };
+  const handleLogOut = () => {
+    setLoggedIn(false);
+  };
+
   return (
     <div className="App">
-      <Header className="header" />
-      <Navigation className="navitagion"/>
-      <CurrentBalance className="current_balance" />
-      <CurrentCost  className="current_cost" />
-      <NewsList className="news" />
-      <Calendar className="calendar" 
-        openModal={openModal}      
-      />
-        {selectedDay && (
-        <ModalListBalance
-          isOpen={modalIsOpen}
-          onRequestClose={closeModal}
-          day={selectedDay}
-          activities={activities}
-          setActivities={setActivities}
+      <Routes>
+        <Route
+          path="/"
+          element={<Login  />}
+        ></Route>
+        <Route path="/signin" element={<Login handleLoggedIn={handleLoggedIn}/>}></Route>
+        <Route path="/signup" element={<Register />}></Route>
+        <Route
+          path="/main"
+          element={
+            <ProtectedRoute loggedIn={loggedIn}>
+              <MainPage handleLogOut={handleLogOut} />
+            </ProtectedRoute>
+          }
         />
-      )}
-      <CostList className="cost_list"/>
+      </Routes>
     </div>
   );
 }

@@ -1,22 +1,117 @@
-.modal{
-  
+.modal {
+}
+.modal__list {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  grid-template-columns: 41% 10% 41% 8%;
+  width: 620px;
+  height: auto;
+  max-height: 500px;
+  background-color: rgba(62, 59, 100, 1);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  z-index: 10;
+  align-items: center;
+  grid-template-areas:
+    'title title title close-button'
+    'new-activity-form new-activity-form new-activity-form .'
+    'activity-list activity-list activity-list .';
 }
 
-.modal__image-fade{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: 9;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+.modal__title {
+  grid-area: title;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.modal__image-fade {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .modal__image-fade.active {
-    opacity: 1;
-    visibility: visible;
-  }
+  opacity: 1;
+  visibility: visible;
+}
+.modal__form {
+  grid-area: new-activity-form;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding-left: 40px;
+  gap: 10px;
+}
+.modal__list__input-activity {
+  border: none;
+  border-bottom: 3px double rgb(236, 235, 235);
+  background-color: transparent;
+  color: white;
+}
 
+.modal__list__input-value {
+  border: none;
+  border-bottom: 3px double rgb(236, 235, 235);
+  background-color: transparent;
+  color: white;
+}
+
+.modal__list__input-type {
+  border: none;
+  border-bottom: 3px double rgb(236, 235, 235);
+  background-color: transparent;
+  color: white;
+}
+
+.modal__list__submit-button {
+  background: #55bed2;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+
+.modal__close-button {
+  background-image: url('../../images/back.png');
+  position: fixed;
+  bottom: 65%;
+  left: 77%;
+  color: white;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 9;
+}
+
+.modal__list__container {
+  grid-area: activity-list;
+  overflow-y: auto;
+  max-height: 150px;
+  padding: 10px;
+}
+
+.modal__list__items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.modal__list__item {
+  width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

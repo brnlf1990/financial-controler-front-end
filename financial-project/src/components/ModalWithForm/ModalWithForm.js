@@ -3,14 +3,32 @@ import React from "react";
 import "./ModalWithForm.css"
 const closeButton = "X"
 function ModalWithForm({ name, title, isOpen, onRequestClose, onSubmit, children }) {
+
+    React.useEffect(() => {
+        const handleKeyDown = (event) => {
+          if (event.key === 'Escape') {
+            onRequestClose(); 
+          }
+        };
+    
+        if (isOpen) {
+          document.addEventListener('keydown', handleKeyDown); 
+        }
+    
+        return () => {
+          document.removeEventListener('keydown', handleKeyDown);
+        };
+      }, [isOpen, onRequestClose]);
+
   return (
     <div className={"modal"}>
-      <div className={`modal__image-fade ${isOpen ? "active" : ""}`}></div>
-      <div className={`modal ${name} ${isOpen ? "modal__opened" : ""}`}>
-        <span className="modal__close-button" onClick={onRequestClose}>
-          <img src={closeButton} className="modal__close-image" alt="close" />
+      <div onClick={onRequestClose} className={`modal__image-fade ${isOpen ? "active" : ""}`}></div>
+      <span className="modal__close-button" onClick={onRequestClose}>
         </span>
-        <h2 className="modal__title">{title}</h2>
+      <div className={`modal ${name} ${isOpen ? "modal__opened" : ""}`}>
+      <h2 className="modal__title">{title}</h2>
+
+       
         <form className="modal__form" onSubmit={onSubmit}>
           {children}
         </form>

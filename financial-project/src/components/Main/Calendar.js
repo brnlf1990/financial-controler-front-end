@@ -40,7 +40,7 @@ function Calendar({openModal}) {
         <h1 className="calendar__title">Calendario de contas</h1>
             <div className="calendar__container">
                     <MonthCard
-                    key={currentMonth} 
+                    key={currentMonth.format('YYYY-MM')} 
                     month={currentMonth} 
                     currentYear={currentYear}
                     prevMonth={prevMonth}

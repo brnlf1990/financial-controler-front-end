@@ -4,9 +4,8 @@
     width: 86%;
     padding: 20px;
     background-color: rgba(62, 59, 100, 1);
-    border: 1px solid #ddd;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(13, 13, 75, 0.384);
   }
   .month-card__header-container{
     display: flex;

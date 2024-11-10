@@ -5,7 +5,7 @@ function CurrentBalance() {
     return ( 
     <CurrentCard
     type="current_balance"
-    title="Entrada"
+    title="Valor positivo no mês"
     value="1200"
     />        
      );

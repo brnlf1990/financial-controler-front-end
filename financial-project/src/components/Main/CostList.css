@@ -1,4 +1,19 @@
-.cost_list{
-    height: 353px;
-    background-color: aliceblue;
+.cost-list__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(13, 13, 75, 0.384);
+}
+
+.cost-list__title {
+  text-align: center;
+}
+
+.cost-list__items {
+  width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

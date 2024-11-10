@@ -10,9 +10,7 @@ function NewsList() {
     >
         <ul className="news__list">
         <li className="news__listed">aaaaaaaaaaaaaaaaaaaaaaaaa</li>
-        <li className="news__listed">b</li>
-        <li className="news__listed">c</li>
-        <li className="news__listed">d</li>
+       
 
         </ul>
     </CurrentCard>        
