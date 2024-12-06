@@ -1,38 +1,52 @@
-import React, { useState, useEffect } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import React, { useContext  } from 'react';
 import './CostList.css';
-import costsApi from "../../utils/costsApi"
-function CostList({type, day, activity, value}) {
+import { ListCostContext } from '../context/ListCostContext';
+function CostList() {
+  
 
-    
+  const {costList} = useContext(ListCostContext);
+  
+    const titles = ['Data', 'Descrição', 'Categoria', 'Valor'];
+    const getColumnData = (item, title) => {
+      switch(title) {
+        case 'Data':
+          return item.date;
+        case 'Descrição':
+          return item.description;
+        case 'Categoria':
+          return item.category;
+        case 'Valor':
+          return item.value;
+        default:
+          return '';
+      }
+    };
+
+
+
   return (
     <div className="cost-list__container">
-      <div className="cost-list__column">
-        <h3 className="cost-list__title"></h3>
+      <h3 className='cost__title'>Lista de custos</h3>
+        {titles.map((title, index) => (
+          <div className="cost-list__column" key={index}>
+          <h3 className="cost-list__title">{title}</h3>
+          <ul className="cost-list__items">
 
-        <ul className="cost-list__date">
-          <li className="cost-list__items"></li>
-        </ul>
+          {Array.isArray(costList) && costList.length > 0 ? (
+              costList.map((item,index) => (
+                <li key={index} className="cost-list__item">
+                  {getColumnData(item, title)}
+                </li>
+              ))
+            ) : (
+              <p>Sem valores</p>
+            )}
+          </ul>
+          </div>
+        )
+        )}
+       
       </div>
-      <div className="cost-list__column">
-        <h3 className="cost-list__title">Descrição</h3>
-        <ul className="cost-list__description">
-          <li className="cost-list__items">Mercaaaaaaaaaaaaaaaaaaado</li>
-        </ul>
-      </div>
-      <div className="cost-list__column">
-        <h3 className="cost-list__title">Categoria</h3>
-        <ul className="cost-list__type">
-          <li className="cost-list__items">{type || 'Sem categoria'}</li>
-        </ul>
-      </div>
-      <div className="cost-list__column">
-        <h3 className="cost-list__title">Valor</h3>
-        <ul className="cost-list__value">
-          <li className="cost-list__items">{value || '0,00'}</li>
-        </ul>
-      </div>
-    </div>
   );
 }
 

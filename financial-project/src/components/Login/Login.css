@@ -15,18 +15,16 @@
     '. .'
     'form-container information-container';
 }
-.login__notification{
+.login__notification {
   color: #16ff16;
   font-size: large;
-
 }
 
-.login__success-image{
+.login__success-image {
   color: #16ff16;
 }
 .login__form-container {
   grid-area: form-container;
-  border: 2px solid rgb(139, 133, 199);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -139,4 +137,70 @@
   color: rgba(41, 38, 78, 1);
   font-size: 15px;
   text-align: center;
+}
+
+.login__error-message {
+  color: red;
+}
+.login-mobile__logo {
+  display: none;
+}
+
+@media screen and (min-width: 320px) and (max-width: 550px) {
+  .login {
+    max-width: 100%;
+    height: 932px;
+    background-color: rgba(41, 38, 78, 1);
+  }
+  .login__title {
+    font-size: 28px;
+  }
+
+  .login-mobile__logo {
+    display: block;
+    width: 38%;
+    height: 20%;
+    align-self: center;
+  }
+  .login__container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+  .login__form {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+  }
+  .login__email {
+    width: 85%;
+    height: 10%;
+  }
+
+  .login__passoword {
+    width: 85%;
+    height: 10%;
+  }
+  .login__form-container {
+    height: 70%;
+    width: 100%;
+    background: none;
+    box-shadow: none;
+    align-items: center;
+  }
+
+  .login__button {
+    width: 85%;
+    height: 10%;
+  }
+
+  .login__information-container {
+    display: none;
+  }
+
+  .login__register{
+    font-size: 16px;
+  }
 }

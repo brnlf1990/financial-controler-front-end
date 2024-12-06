@@ -1,11 +1,12 @@
 export const BASE_URL = 'http://localhost:3001';
 
-export const getTotalCostValue = ({}) => {
+export const getTotalCostValue = () => {
   return fetch(`${BASE_URL}/costs/total`, {
     method: 'GET',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
+      "Authorization" : `Bearer ${localStorage.getItem('token')}`,
     },
   })
     .then((response) => {
@@ -18,13 +19,13 @@ export const getTotalCostValue = ({}) => {
   
 };
 
-export const getAllCosts = (userId) => {
+export const getAllCosts = () => {
   return fetch(`${BASE_URL}/costs`, {
     method: 'GET',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      body: JSON.stringify({ userId: userId }),
+      "Authorization" : `Bearer ${localStorage.getItem('token')}`,
     },
   })
     .then((response) => {
@@ -39,14 +40,16 @@ export const getAllCosts = (userId) => {
     });
 };
 
-export const addCostValue = ({ description, value, category }) => {
+export const addCostValue = ({date, description, value, category }) => {
   return fetch(`${BASE_URL}/costs`, {
-    method: 'PUT',
+    method: 'POST',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem('token')}`,
     },
     body: JSON.stringify({
+      date:date,
       description: description,
       value: value,
       category: category,
@@ -54,14 +57,14 @@ export const addCostValue = ({ description, value, category }) => {
   })
     .then((response) => {
       if (response.ok) {
+        console.log(response);
+        
         return response.json().then((data) => {
           return data;
         });
       }
     })
-    .catch((error) => {
-      return error;
-    });
+   
 };
 
 export const editCostValue = ({ description, category, value }, valueId) => {

@@ -1,7 +1,6 @@
 import React from "react";
 
 import "./ModalWithForm.css"
-const closeButton = "X"
 function ModalWithForm({ name, title, isOpen, onRequestClose, onSubmit, children }) {
 
     React.useEffect(() => {
@@ -22,10 +21,12 @@ function ModalWithForm({ name, title, isOpen, onRequestClose, onSubmit, children
 
   return (
     <div className={"modal"}>
+      
       <div onClick={onRequestClose} className={`modal__image-fade ${isOpen ? "active" : ""}`}></div>
-      <span className="modal__close-button" onClick={onRequestClose}>
-        </span>
+      
       <div className={`modal ${name} ${isOpen ? "modal__opened" : ""}`}>
+      <span className="modal__close-button" onClick={onRequestClose}>
+      </span>
       <h2 className="modal__title">{title}</h2>
 
        

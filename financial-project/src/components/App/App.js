@@ -4,31 +4,33 @@ import MainPage from '../Main/MainPage';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import ProtectedRoute from '../ProtectedRoute.js/ProtectedRoute';
-import {checkToken} from '../../utils/auth'
+import { checkToken } from '../../utils/auth';
+import { CostActivitiesContextProvider } from '../context/CostContext';
+import { ListCostContextProvider } from '../context/ListCostContext';
+import { ListRevenueContextProvider } from '../context/ListRevenueContext';
+import { CurrentValueContextProvider} from '../context/CurrentValue'
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  useEffect(()=> {
-    const jwt = localStorage.getItem("token");
+  useEffect(() => {
+    const jwt = localStorage.getItem('token');
 
-    if (jwt){
+    if (jwt) {
       checkToken(jwt)
-      .then((res) => {
-          if (res){
+        .then((res) => {
+         
+          if (res) {
             handleLoggedIn();
-            navigate('/main');            
+            navigate('/main');
           }
-      })
-      .catch((error) => {
-        console.log(error);
-        
-      })
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
-  },[])
-
-
+  }, []);
 
   const handleLoggedIn = () => {
     setLoggedIn(true);
@@ -38,24 +40,34 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Routes>
-        <Route
-          path="/"
-          element={<Login  />}
-        ></Route>
-        <Route path="/signin" element={<Login handleLoggedIn={handleLoggedIn}/>}></Route>
-        <Route path="/signup" element={<Register />}></Route>
-        <Route
-          path="/main"
-          element={
-            <ProtectedRoute loggedIn={loggedIn}>
-              <MainPage handleLogOut={handleLogOut} />
-            </ProtectedRoute>
-          }
-        />
-      </Routes>
-    </div>
+    <CurrentValueContextProvider>
+    <CostActivitiesContextProvider>
+
+      <ListCostContextProvider>
+        <ListRevenueContextProvider>
+
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Login />}></Route>
+          <Route
+            path="/signin"
+            element={<Login handleLoggedIn={handleLoggedIn} />}
+          ></Route>
+          <Route path="/signup" element={<Register />}></Route>
+          <Route
+            path="/main"
+            element={
+              <ProtectedRoute loggedIn={loggedIn}>
+                <MainPage handleLogOut={handleLogOut} />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </div>
+      </ListRevenueContextProvider>
+      </ListCostContextProvider>
+    </CostActivitiesContextProvider>
+    </CurrentValueContextProvider>
   );
 }
 

@@ -1,23 +1,33 @@
-import React, { useState, useEffect, context, Children } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
-import costsApi from "../../utils/costsApi"
-export const CostActivitiesContex = context();
+import React, {
+  useState,
+  useEffect,
+  context,
+  createContext,
+  useContext,
+} from 'react';
+import { getTotalCostValue } from '../../utils/costsApi';
+import { CurrentUserContext } from './Usercontext';
 
-export const costActivitiesContexProvider = ({ children }) => {
-  const [costList, setCostList] = useState([]);
+export const CostActivitiesContext = createContext();
+
+export const CostActivitiesContextProvider = ({ children }) => {
+  const [totalCost, setTotalCost] = useState([]);
+  const currentUser = useContext(CurrentUserContext);
 
   useEffect(() => {
-    costsApi.getAllCosts()
-    .then((data) => {
-      setCostList(data)
-  })
-  .catch((error) => {
-    return error;
-  });
-  }, [])
+    getTotalCostValue(currentUser.currentUser._id)
+      .then((data) => {
+
+        setTotalCost(data.totalCostValue);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [currentUser]);
 
   return (
-  <CostActivitiesContex.Provider value={costList}>
-    {children}
-  </CostActivitiesContex.Provider>)
+    <CostActivitiesContext.Provider value={totalCost}>
+      {children}
+    </CostActivitiesContext.Provider>
+  );
 };

@@ -1,49 +1,73 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ModalWithForm from './ModalWithForm';
 import './ModalListBalance';
-import CostList from '../Main/CostList';
+import { addCostValue } from '../../utils/costsApi';
+import { addRevenueValue } from '../../utils/revenueApi';
+import { ListCostContext } from '../context/ListCostContext';
+import { ListRevenueContext } from '../context/ListRevenueContext';
 
-export const ModalContext = React.createContext();
+function ModalListBalance({ isOpen, onRequestClose, day }) {
+  const [formData, setFormData] = React.useState({
+    description: '',
+    value: '',
+    category: 'Entrada',
+  });
+  const { costList, setCostList } = useContext(ListCostContext);
+  const { revenueList, setRevenueList } = useContext(ListRevenueContext);
 
-function ModalListBalance({
-  isOpen,
-  onRequestClose,
-  day,
-  activities,
-  setActivities,
-  children,
-}) {
-  const [activity, setActivity] = React.useState('');
-  const [value, setValue] = React.useState(0);
-  const [category, setCategory] = React.useState('');
   const categories = ['Entrada', 'Gasto'];
-
-  const handleCategoryChange = (event) => {
-    setCategory(event.target.value);
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
-  const handleSave = () => {
-    if (day) {
-      const newActivity = {
-        name: activity,
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    
+    const data = {
+      date: day.format('YYYY-MM-DD'),
+      description: formData.description,
+      value: parseFloat(formData.value),
+      category: formData.category,
+    };
 
-        value: parseFloat(value),
-      };
+    const apiCall =
+      formData.category === 'Entrada'
+        ? addRevenueValue(data)
+        : addCostValue(data);
 
-      const newActivities = {
-        ...activities,
-        [day.format('YYYY-MM-DD')]: [
-          ...(activities[day.format('YYYY-MM-DD')] || []),
-          newActivity,
-        ],
-      };
-      handleCategoryChange()
-      setActivities(newActivities);
-      setActivity(newActivities);
-      onRequestClose();
-    }
+    apiCall
+      .then((newItem) => {
+
+        if (formData.category === 'Entrada') {
+
+          setRevenueList((prevList) => [
+            ...prevList,
+            { ...newItem.data, date: newItem.data.date },
+          ]);
+        } else {
+          setCostList((prevList) => [
+            ...prevList,
+            { ...newItem.data, date: newItem.data.date },
+          ]);
+        }
+
+        setFormData({
+          description: '',
+          value: '',
+          category: '',
+        });
+        onRequestClose();
+      })
+      .catch((error) => {
+        console.error('Erro ao adicionar item:', error);
+      });
   };
  
+
   return (
     <div>
       <ModalWithForm
@@ -51,10 +75,12 @@ function ModalListBalance({
         title={day.format('DD-MM-YYYY')}
         isOpen={isOpen}
         onRequestClose={onRequestClose}
+        onSubmit={handleSubmit}
       >
         <input
-          value={activity}
-          onChange={(e) => setActivity(e.target.value)}
+          name="description"
+          value={formData.description}
+          onChange={handleInputChange}
           placeholder="Add new activity"
           className="modal__list__input-activity"
           type="text"
@@ -63,11 +89,11 @@ function ModalListBalance({
         />
         <span className="modal__list__input-activity__error"></span>
         <select
-          value={category}
-          onChange={handleCategoryChange}
+          name="category"
+          value={formData.category}
+          onChange={handleInputChange}
           placeholder="Escolha se é gasto ou entrada"
           className="modal__list__select"
-          required
         >
           {categories.map((cat, index) => (
             <option key={index} value={cat}>
@@ -77,26 +103,43 @@ function ModalListBalance({
         </select>
 
         <span className="modal__list__input-type__error"></span>
-
         <input
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
+          name="value"
+          value={formData.value}
+          onChange={handleInputChange}
           placeholder="Add value"
           className="modal__list__input-value"
           required
         />
         <span className="modal__list__input-value__error"></span>
-        <button onClick={handleSave} className="modal__list__submit-button">
-          Salvar Atividade
-        </button>
+        <button className="modal__list__submit-button">Salvar Atividade</button>
         <ul className="modal__list__container">
-          {(activities[day.format('YYYY-MM-DD')] || []).map((act, index) => (
-            <li key={index} className="modal__list__items">
-              <span className="modal__list__item ">{act.name}</span>
-              <span className="modal__list__item">Categoria:{act.type}</span>
-              <span className="modal__list__item"> Valor: {act.value}</span>
-            </li>
-          ))}
+          {[...costList, ...revenueList]
+            .filter(
+              (item) => item.date.slice(0, 10) === day.format('YYYY-MM-DD')
+            )
+            .map((list, index) => (
+              <li
+                key={index}
+                className={`modal__list__items ${
+                  list.category === 'Entrada' ? 'revenue-item' : 'cost-item'
+                }`}
+              >
+                <span className="modal__list__item">{list.description}</span>
+                <span className="modal__list__item">
+                  Categoria: {list.category}
+                </span>
+                <span
+                  className={`modal__list__item ${
+                    list.category === 'Entrada'
+                      ? 'text-green-500'
+                      : 'text-red-500'
+                  }`}
+                >
+                  {list.category === 'Entrada' ? '+' : '-'} {list.value}
+                </span>
+              </li>
+            ))}
         </ul>
       </ModalWithForm>
     </div>

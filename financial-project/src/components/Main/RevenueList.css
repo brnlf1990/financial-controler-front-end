@@ -1,0 +1,28 @@
+.revenue-list__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(13, 13, 75, 0.384);
+    margin-top: 10%;
+    overflow-y: auto; 
+    max-height:  30%;
+  }
+  
+  .revenue-list__title {
+    text-align: start;
+    padding-left: 19px;
+  }
+  
+  .revenue-list__items {
+    width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .revenue-title{
+    color: #55BED2;
+  }
+
+ 

@@ -4,13 +4,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import * as auth from '../../utils/auth';
 import revenue from '../../images/earnings-banner.png';
 import logo from '../../images/ebroxo.png';
-function Register({ handleLoggedIn }) {
+import mobileLogo from '../../images/ebroxo.png';
+function Register() {
   const [name, setName] = React.useState('');
   const [about, setAbout] = React.useState('');
   const [avatar, setAvatar] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
-  const [emailError, setEmailError] = React.useState('');
   const [errors, setErrors] = React.useState('');
   const navigate = useNavigate();
 
@@ -20,28 +20,17 @@ function Register({ handleLoggedIn }) {
     auth
       .register({ email, password, name, about, avatar })
       .then((data) => {
-        if (data.message === 'Este e-mail já está registrado.') {
-          setEmailError(data.message);
-        } else if (data.errors) {
-          setErrors(data.errors);
-        }
 
         if (data.data) {
-          setEmailError('');
           setErrors('');
           navigate('/signin', {
             state: { message: 'Registro realizado com sucesso! Faça login.' },
           });
         }
       })
-      .catch((error) => {
-        console.log('entrou catch');
-        if (error.error) {
-          console.log(error);
+      .catch((errors) => {
 
-          setErrors(error.errors);
-        }
-        console.log('[Login] Error', error);
+        setErrors('Preeccher corretamente os campos');
       });
   };
 
@@ -49,15 +38,17 @@ function Register({ handleLoggedIn }) {
     <div className="register">
       <div className="register__container">
         <div className="register__information-container">
-          <img className="register__logo" src={logo} />
-          <img className="register__graph" src={revenue} />
+          <img className="register__logo" src={logo} alt='logo' />
+          <img className="register__graph" src={revenue} alt='graph register'/>
           <h2 className="register__text-title">Não perca tempo!</h2>
           <span className="register__text">
             Registre-se no aplicativo e controle seus gastos da melhor forma!
           </span>
         </div>
+        <img className="login-mobile__logo" src={mobileLogo} alt="logo" />
         <div className="register__form-container">
           <h2 className="register__title">Registre-se</h2>
+          <span className="register__error">{errors}</span>
           <h3 className="register__sub-title">
             Tenha melhor controle sobre seu dinheiro!
           </h3>
@@ -70,9 +61,7 @@ function Register({ handleLoggedIn }) {
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
-            <span className="register__error register__error--name">
-              {errors.name}
-            </span>
+
             <input
               name="about"
               placeholder="Sobre"
@@ -80,9 +69,7 @@ function Register({ handleLoggedIn }) {
               value={about}
               onChange={(e) => setAbout(e.target.value)}
             />
-            <span className="register__error register__error--about">
-              {errors.about}
-            </span>
+
             <input
               name="avatar"
               placeholder="Avatar"
@@ -90,9 +77,7 @@ function Register({ handleLoggedIn }) {
               value={avatar}
               onChange={(e) => setAvatar(e.target.value)}
             />
-            <span className="register__error register__error--avatar">
-              {errors.avatar}
-            </span>
+
             <input
               name="email"
               placeholder="E-mail"
@@ -101,9 +86,7 @@ function Register({ handleLoggedIn }) {
               required
               onChange={(e) => setEmail(e.target.value)}
             />
-            <span className="register__error register__error--email">
-              {emailError}
-            </span>
+
             <input
               name="password"
               type="password"
@@ -112,9 +95,7 @@ function Register({ handleLoggedIn }) {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <span className="register__error register__error--password">
-              {errors.password}
-            </span>
+
             <button className="register__button" type="submit">
               Entrar
             </button>

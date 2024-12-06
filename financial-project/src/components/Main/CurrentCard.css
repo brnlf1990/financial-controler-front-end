@@ -1,8 +1,8 @@
-.current_card{
-    width: 265px;
-    height: 205px;
+.current_card {
+  width: 265px;
+  height: 205px;
 }
-.current_card__container{
+.current_card__container {
   display: flex;
   justify-content: flex-start;
   width: 265px;
@@ -11,28 +11,38 @@
   align-items: center;
 }
 
-
-
-.current_card__title{
-font-family: 'Rubik';
-font-style: normal;
-font-weight: 600;
-font-size: 16px;
-line-height: 19px;
-border-bottom: 1px solid rgba(0, 0, 0, 1);
-width: 90%;
-
+.current_card__title {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  border-bottom: 1px solid rgba(0, 0, 0, 1);
+  width: 90%;
 }
 
-.current_card{
-
+.current_card__value {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 50px;
+  padding-top: 37px;
+  margin: 0;
 }
 
-.current_card__value{
-font-family: 'Rubik';
-font-style: normal;
-font-weight: 600;
-font-size: 50px;
-padding-top: 37px;
-margin: 0;
+@media screen and (min-width: 320px) and (max-width: 880px) {
+  .current_card__container {
+    display: flex;
+    width: 181%;
+    height: 205px;
+    flex-direction: column;
+  }
+  .current_card {
+    width: 55%;
+    height: 205px;
+  }
+
+  .current_card__title {
+    font-size: 23px;
+  }
 }

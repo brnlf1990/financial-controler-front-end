@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { Route, Routes, useNavigate  } from "react-router-dom";
+import React, {  useContext } from "react";
+import { CurrentValueContext } from "../context/CurrentValue";
+import { CostActivitiesContext } from "../context/CostContext";
 import CurrentCard from "./CurrentCard";
 function CurrentBalance() {
+    const totalCost = useContext(CostActivitiesContext);
+    const totalBalance = useContext(CurrentValueContext);
+    
     return ( 
     <CurrentCard
     type="current_balance"
-    title="Valor positivo no mês"
-    value="1200"
+    title="Valor atual no mês"
+    value={totalBalance- totalCost}
     />        
      );
 }

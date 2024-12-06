@@ -1,28 +1,45 @@
-import React, { useState, useEffect } from 'react';
-import {  useNavigate } from 'react-router-dom';
-import ebBucket from '../../images/eb.jpg'
+import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import ebBucket from '../../images/eblogo.png';
 import './Navigation.css';
 import Footer from './Footer';
-function Navigation({handleLogOut}) {
+function Navigation({ handleLogOut }) {
   const navigate = useNavigate();
-  function signOut(){
+  const location = useLocation();
+  function signOut() {
+    localStorage.removeItem('token');
     handleLogOut();
-    localStorage.removeItem('jwt');
     navigate('/signin');
   }
 
-
+  const isActive = (path) => location.pathname === path;
 
   return (
     <div className="navigation">
-      <img className='navigation__logo' src={ebBucket}/>
+      <img className="navigation__logo" src={ebBucket} alt='navigation logo' />
 
       <nav className="navigation__container">
         <p className="navigation__general">Menu</p>
-        <a className="navitation__dashboard">Dashboard</a>
-        <a className="navitation__tracking_list">Atividades</a>
-        <a className="navitation__logout" onClick={signOut}>Sair</a>
-        <Footer className="footer"/>
+        <a href='/main'
+          className={`navigation__dashboard ${
+            isActive('/main') ? 'navigation__dashboard--featured' : ''
+          }`}
+          onClick={() => navigate('/main')}
+        >
+          Home
+        </a>
+        <a href="/tracking"
+          className={`navigation__tracking_list ${
+            isActive('/tracking') ? 'navigation__tracking_list--featured' : ''
+          }`}
+          onClick={() => navigate('/tracking')}
+        >
+          Atividades
+        </a>
+        <a href={signOut} className="navitation__logout" onClick={signOut}>
+          Sair
+        </a>
+        <Footer className="footer" />
       </nav>
     </div>
   );
