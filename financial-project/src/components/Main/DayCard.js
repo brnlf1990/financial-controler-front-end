@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { Route, Routes, useNavigate  } from "react-router-dom";
+import React from "react";
 import moment from "moment";
 import "./DayCard.css"
 function DayCard({day, month, year, openModal }) {

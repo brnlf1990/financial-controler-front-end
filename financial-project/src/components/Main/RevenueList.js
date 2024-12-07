@@ -1,8 +1,8 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { ListRevenueContext } from '../context/ListRevenueContext';
 import './RevenueList.css';
 function RevenueList() {
-  const { revenueList, setRevenueList } = useContext(ListRevenueContext);
+  const { revenueList } = useContext(ListRevenueContext);
 
   const titles = ['Data', 'Descrição', 'Categoria', 'Valor'];
   const getColumnData = (item, title) => {

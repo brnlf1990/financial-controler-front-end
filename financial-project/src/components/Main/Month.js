@@ -1,8 +1,5 @@
-import { Route, Routes, useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
-import moment from 'moment';
 import './Month.css';
-import Day from './DayCard';
 import DayCard from './DayCard';
 function MonthCard({ month, currentYear, prevMonth, nextMonth, openModal }) {
   const [calendar, setCalendar] = useState([]);

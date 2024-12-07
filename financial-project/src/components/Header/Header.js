@@ -1,5 +1,4 @@
-import React, { useState, useEffect, createContext, useContext } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import React, {  useContext } from 'react';
 import { CurrentUserContext } from '../context/Usercontext';
 import './Header.css';
 function Header() {

@@ -1,5 +1,5 @@
 import '../App/App.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Header from '../Header/Header';
 import Calendar from './Calendar';
 import Navigation from '../Navigation/Navigation';
@@ -9,7 +9,6 @@ import RevenueList from './RevenueList';
 import CurrentBalance from './CurrentBalance';
 import NewsList from './NewsList';
 import ModalListBalance from '../ModalWithForm/ModalListBalance';
-import ModalEditProfile from '../ModalWithForm/ModalEditProfile';
 import './MainPage.css';
 
 function MainPage({ handleLogOut }) {
