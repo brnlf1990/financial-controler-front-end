@@ -20,7 +20,7 @@ function Navigation({ handleLogOut }) {
 
       <nav className="navigation__container">
         <p className="navigation__general">Menu</p>
-        <a href='/main'
+        <a href='####'
           className={`navigation__dashboard ${
             isActive('/main') ? 'navigation__dashboard--featured' : ''
           }`}
@@ -28,7 +28,7 @@ function Navigation({ handleLogOut }) {
         >
           Home
         </a>
-        <a href="/tracking"
+        <a href="####"
           className={`navigation__tracking_list ${
             isActive('/tracking') ? 'navigation__tracking_list--featured' : ''
           }`}
@@ -36,7 +36,7 @@ function Navigation({ handleLogOut }) {
         >
           Atividades
         </a>
-        <a href={signOut} className="navitation__logout" onClick={signOut}>
+        <a href="####" className="navitation__logout" onClick={signOut}>
           Sair
         </a>
         <Footer className="footer" />
