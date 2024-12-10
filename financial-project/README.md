@@ -1,3 +1,56 @@
+
+- [Aviso] (#aviso)
+- [Descrição do Projeto](#descrição-do-projeto)
+- [Tecnologias utilizadas](#tecnologias-utilizadas)
+
+- [Funcionalidades e Demonstração da Aplicação](#funcionalidades-e-demonstração-da-aplicação)
+- [Acesso ao Projeto](#acesso-ao-projeto)
+- [Pessoas Desenvolvedoras do Projeto](#autores)
+- [Conclusão](#conclusão)
+
+# Aviso
+Este projeto é uma aplicação Fullstack. Para começar, siga os passos abaixo:
+
+1. Clone o repositório através do link:
+https://github.com/brnlf1990/financial-controler-back-end
+
+2. Acesse o diretório do projeto clonado e execute o comando npm install para instalar as dependências listadas no arquivo package.json.
+
+Se precisar de mais ajuda, é só chamar!
+
+
+# ![Easy Bucket](./src/images/eblogo.png)
+
+
+# Descrição do Projeto
+Projeto criado para um controle das financeiro mais preciso. Nesse projeto tera a pagina principal onde o cliente irá encontrar um calendario que podera interagir com os dias. Cada dia possui uma janela onde os dados sobre controle de gastos ou de entrada será salvo. Após salvo, cada dia irá conter sua própria lista onde o usuario podera verificar seus gastos mais precisamente. O site também tem a lista com todos os itens gastos e  de entrada.
+# Tecnologia utilizada:
+Front-end:
+
+<img align="center" alt="html5" src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
+<img align="center" alt="CSS3" src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+<img align="center" alt="JavaScript" src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
+<img align="center" alt="React" src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB">
+
+
+# :hammer : Funcionalidades do projeto
+
+
+
+# Acesso ao projeto
+
+# Autores
+ [<img loading="lazy" src="https://avatars.githubusercontent.com/u/114805570?s=400&u=a591c1f671119e0c150e6a5178465b744cd8c912&v=4" width=115><br><sub>Bruno Lopes Furuya</sub>](https://github.com/brnlf1990) 
+# Conclusão
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

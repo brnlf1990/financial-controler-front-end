@@ -146,6 +146,15 @@
   display: none;
 }
 
+.login__signup_link{
+  color: #007bff; 
+  text-decoration: none;
+}
+
+.login__signup_link:hover {
+  color: #0056b3; 
+  text-decoration: underline; 
+}
 @media screen and (min-width: 320px) and (max-width: 550px) {
   .login {
     max-width: 100%;

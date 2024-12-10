@@ -1,7 +1,7 @@
 .MainPage {
   display: grid;
   margin: auto;
-  grid-template-rows: 4% 23% 14% 14%;
+  grid-template-rows: 4% 19% 12% 13%;;
   grid-template-columns: 26% 70%;
   height: 80%;
   overflow: hidden;
@@ -11,6 +11,10 @@
     'current-balance calendar'
     'current-cost cost-list'
     'news revenue-list';
+}
+
+.footer__mobile{
+  display: none;
 }
 .header {
   grid-area: header;
@@ -57,7 +61,7 @@
     display: grid;
     margin: auto;
     grid-template-rows:
-    2% 7% 23% 8% 9% 11% 16% 7%;
+    2% 7% 23% 8% 9% 11% 16% 20% 1%;
     grid-template-columns: 100%; 
     overflow: hidden;
     grid-template-areas:
@@ -68,7 +72,8 @@
       'current-cost'
       'cost-list'
       'revenue-list'
-      'news';
+      'news'
+      'footer';
   }
 
   .header {
@@ -136,9 +141,12 @@
   .news {
     grid-area: news;
     background-color: rgba(62, 59, 100, 1);
-    padding: 15px;
     color: white;
     font-size: 16px;
     text-align: center;
+    justify-self: baseline;
+  }
+  .footer__mobile{
+    grid-area: footer;
   }
 }

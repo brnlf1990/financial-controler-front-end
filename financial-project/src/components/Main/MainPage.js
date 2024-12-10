@@ -8,6 +8,7 @@ import CurrentCost from './CurrentCost';
 import RevenueList from './RevenueList';
 import CurrentBalance from './CurrentBalance';
 import NewsList from './NewsList';
+import Footer from '../Navigation/Footer';
 import ModalListBalance from '../ModalWithForm/ModalListBalance';
 import './MainPage.css';
 
@@ -46,6 +47,7 @@ function MainPage({ handleLogOut }) {
       )}
 
       <CostList className="cost_list" />
+      <footer className="footer__mobile">© 2024 Bruno Lopes Furuya </footer>
     </div>
   );
 }
