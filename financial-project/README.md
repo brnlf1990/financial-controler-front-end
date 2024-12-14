@@ -57,9 +57,37 @@ Abaixo as funcionalidade do site:
                 
 Aqui é onde o usuario cria sua conta, é necessario inserir todos os dados. Colocar um email e no avatar só é aceito um link com uma foto. Após finalizado usuario será redirecionado para a pagina de login e uma mensagem em verde será exibida
 
-                ![](./gif/register.gif)
+<p> <img  src="./gif//register.gif"/> </p>
 
+- Login
+Essa pagina onde o usuario irá entrar no aplicativo. Necessário inserir os dados corretamente.
+<p> <img  src="./gif//login.gif"/> </p>
 
+- Página principal
+
+Aqui está uma versão ajustada do texto que você forneceu, com uma estrutura mais clara e linguagem refinada:
+
+Após fazer login, o usuário terá acesso ao aplicativo. Ao selecionar um dia no calendário, uma janela será exibida, permitindo que o usuário adicione itens classificados como gastos ou entradas.
+
+Gastos: incluem todas as atividades que resultem na saída de dinheiro.
+
+Entradas: representam qualquer atividade que gere entrada de dinheiro.
+Cada janela será uma lista própria, exibindo todas as atividades associadas ao dia selecionado. Ao lado dessa lista, serão apresentados:
+
+O valor total dos gastos.
+O saldo atual em caixa.
+
+Além disso, na área abaixo do calendário, haverá listas consolidadas com todos os itens adicionados ao longo dos dias do calendário.
+<p> <img  src="./gif//main.gif"/> </p>
+
+- Menu
+
+Aqui está o texto revisado e organizado de forma mais clara:
+
+No menu, o usuário pode navegar para outras páginas. Atualmente, a página Atividades está em construção. Ao clicar nessa opção, uma tela será exibida com a possibilidade de retornar ao Dashboard.
+
+Caso o usuário selecione a opção Sair, ele será deslogado do site, e o token de autenticação será excluído do navegador.
+<p> <img  src="./gif//navigation.gif"/> </p>
 
 # Acesso ao projeto
 
