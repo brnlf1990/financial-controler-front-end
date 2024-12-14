@@ -1,5 +1,4 @@
     import React, { useState, useEffect } from "react";
-    import { Route, Routes, useNavigate  } from "react-router-dom";
     import CurrentCard from "./CurrentCard";
     import {getNews} from '../../utils/news'
     import "./NewsList.css"
@@ -26,7 +25,7 @@
             {Array.isArray(news) && news.length > 0 ? (
                 news.map((item, index) => (
                     <li  key={index} className="news-list__item">
-                        <a className="news__link" href={item.url}>{item.description}</a>
+                        <a target="blank" className="news__link" href={item.url}>{item.description}</a>
                     </li>
                 ))
                 ) : (

@@ -1,5 +1,5 @@
 
-- [Aviso] (#aviso)
+- [Pré-requisitos](#pré-requisito)
 - [Descrição do Projeto](#descrição-do-projeto)
 - [Tecnologias utilizadas](#tecnologias-utilizadas)
 
@@ -8,17 +8,34 @@
 - [Pessoas Desenvolvedoras do Projeto](#autores)
 - [Conclusão](#conclusão)
 
-# Aviso
-Este projeto é uma aplicação Fullstack. Para começar, siga os passos abaixo:
+# Pré-requisitos
 
-1. Clone o repositório através do link:
-https://github.com/brnlf1990/financial-controler-back-end
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/). 
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
-2. Acesse o diretório do projeto clonado e execute o comando npm install para instalar as dependências listadas no arquivo package.json.
+1. Acesse https://github.com/brnlf1990/financial-controler-back-end para configurar o back-end.
+
+2. Baixe o repositório do front-end:
+            
+            git clone https://github.com/brnlf1990/financial-controler-front-end.git
+
+3. Acesse o diretório financial-project:
+
+        cd financial-project
+
+4. E execute o comando npm install para instalar as dependências listadas no arquivo package.json:
+   
+        npm install
+
+5. Execute a aplicação:
+
+        npm run start
+
 
 Se precisar de mais ajuda, é só chamar!
 
-
+#
 # ![Easy Bucket](./src/images/eblogo.png)
 
 
@@ -34,10 +51,12 @@ Front-end:
 
 
 # :hammer : Funcionalidades do projeto
+Abaixo as funcionalidade do site:
 
 
 
 # Acesso ao projeto
+
 
 # Autores
  [<img loading="lazy" src="https://avatars.githubusercontent.com/u/114805570?s=400&u=a591c1f671119e0c150e6a5178465b744cd8c912&v=4" width=115><br><sub>Bruno Lopes Furuya</sub>](https://github.com/brnlf1990) 

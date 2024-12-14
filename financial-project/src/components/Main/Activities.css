@@ -1,0 +1,19 @@
+.activities__container{
+    display: flex;
+    width: 145%;
+    height: 100%;
+    flex-direction: column;
+}
+
+.activities__image{
+    width: 50%;
+    height: 50%;
+}
+
+
+.activities__text{
+    font-size: 50px;
+}
+.activities__main{
+    color: blue;
+}
