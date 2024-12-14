@@ -78,7 +78,7 @@ O valor total dos gastos.
 O saldo atual em caixa.
 
 Além disso, na área abaixo do calendário, haverá listas consolidadas com todos os itens adicionados ao longo dos dias do calendário.
-<p> <img  src="./gif//main.gif"/> </p>
+<p> <img width=600px  src="./gif//main.gif"/> </p>
 
 - Menu
 
