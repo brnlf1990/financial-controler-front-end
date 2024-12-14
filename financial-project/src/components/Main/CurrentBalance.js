@@ -9,7 +9,7 @@ function CurrentBalance() {
     return ( 
     <CurrentCard
     type="current_balance"
-    title="Valor atual no mês"
+    title="Valor atual"
     value={totalBalance- totalCost}
     />        
      );
