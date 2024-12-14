@@ -53,6 +53,12 @@ Front-end:
 # :hammer : Funcionalidades do projeto
 Abaixo as funcionalidade do site:
 
+- Registro
+                
+Aqui é onde o usuario cria sua conta, é necessario inserir todos os dados. Colocar um email e no avatar só é aceito um link com uma foto. Após finalizado usuario será redirecionado para a pagina de login e uma mensagem em verde será exibida
+
+                ![](./gif/register.gif)
+
 
 
 # Acesso ao projeto
