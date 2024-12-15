@@ -78,25 +78,29 @@ O valor total dos gastos.
 O saldo atual em caixa.
 
 Além disso, na área abaixo do calendário, haverá listas consolidadas com todos os itens adicionados ao longo dos dias do calendário.
-<p> <img width=600px  src="./gif//main.gif"/> </p>
+<p> <img width=600px  src="./gif/main.gif"/> </p>
 
 - Menu
-
-Aqui está o texto revisado e organizado de forma mais clara:
 
 No menu, o usuário pode navegar para outras páginas. Atualmente, a página Atividades está em construção. Ao clicar nessa opção, uma tela será exibida com a possibilidade de retornar ao Dashboard.
 
 Caso o usuário selecione a opção Sair, ele será deslogado do site, e o token de autenticação será excluído do navegador.
 <p> <img  src="./gif//navigation.gif"/> </p>
 
-# Acesso ao projeto
+- Noticias
+Há também uma janela de notícias, onde são exibidas diversas informações relacionadas a negócios. Ao clicar em uma das notícias, será aberta outra página com o site correspondente. Para fornecer essa lista de notícias, foi utilizada uma API de terceiros.
+<p> <img  src="./gif/news.gif"/> </p>
 
+# Acesso ao projeto
+🏗️ Este setor esta em construção.
 
 # Autores
  [<img loading="lazy" src="https://avatars.githubusercontent.com/u/114805570?s=400&u=a591c1f671119e0c150e6a5178465b744cd8c912&v=4" width=115><br><sub>Bruno Lopes Furuya</sub>](https://github.com/brnlf1990) 
 # Conclusão
 
+Com essa aplicação Fullstack, meus conhecimentos em React, JavaScript, Node.js, Express.js e MongoDB foram significativamente aprimorados. Aprendi a utilizar o Moment.js, uma biblioteca voltada para a manipulação de calendários e datas. Também aprofundei minha compreensão sobre o método map para iterar em arrays. Meus conhecimentos em manipulação de arrays também evoluíram, e agora compreendo de forma mais eficiente como acessar e trabalhar com os dados contidos dentro de arrays.
 
+Além disso, passei a utilizar o Trello como ferramenta para organizar as tarefas e definir prazos, o que me proporcionou uma visão mais clara sobre como estruturar e planejar o trabalho antes de começar. 
 
 
 

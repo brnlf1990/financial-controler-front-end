@@ -31,10 +31,11 @@ function Login({ handleLoggedIn }) {
           response.json().then((data) => {
             if (data) {
               setAuthorizationToken(data.token);
-              handleLoggedIn();
               localStorage.setItem('token', data.token);
               setCurrentUser(data.user);
               navigate('/main');
+              handleLoggedIn();
+
             }
           });
         }

@@ -46,7 +46,7 @@ function App() {
           <ListRevenueContextProvider>
             <div className="App">
               <Routes>
-                <Route path="/" element={<Login />}></Route>
+                <Route path="/" element={<Login handleLoggedIn={handleLoggedIn}/>}></Route>
                 <Route
                   path="/signin"
                   element={<Login handleLoggedIn={handleLoggedIn} />}
