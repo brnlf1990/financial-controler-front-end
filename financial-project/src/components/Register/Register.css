@@ -159,6 +159,16 @@
   color: red;
 }
 
+.register__signin_link{
+  color: #007bff; 
+  text-decoration: none;
+}
+
+.register__signin_link:hover {
+  color: #0056b3; 
+  text-decoration: underline; 
+}
+
 @media screen and (min-width: 320px) and (max-width: 550px) {
   .register {
     max-width: 100%;

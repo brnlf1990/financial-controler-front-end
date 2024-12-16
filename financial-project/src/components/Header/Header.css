@@ -52,6 +52,9 @@
 }
 
 @media screen and (min-width: 320px) and (max-width: 880px) {
+  .header{
+    height: 45px;
+  }
   .header__container {
     display: grid;
     grid-template-columns: 54% 12% 32%;
@@ -60,4 +63,7 @@
     grid-template-rows: 49%;
     cursor: pointer;
   }
+  .header__title {
+    font-size: 18px;
+}
 }

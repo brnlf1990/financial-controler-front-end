@@ -30,9 +30,9 @@ function Navigation({ handleLogOut }) {
         </a>
         <a href="####"
           className={`navigation__tracking_list ${
-            isActive('/tracking') ? 'navigation__tracking_list--featured' : ''
+            isActive('/activities') ? 'navigation__activities_list--featured' : ''
           }`}
-          onClick={() => navigate('/tracking')}
+          onClick={() => navigate('/activities')}
         >
           Atividades
         </a>

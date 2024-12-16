@@ -31,10 +31,11 @@ function Login({ handleLoggedIn }) {
           response.json().then((data) => {
             if (data) {
               setAuthorizationToken(data.token);
-              handleLoggedIn();
               localStorage.setItem('token', data.token);
               setCurrentUser(data.user);
               navigate('/main');
+              handleLoggedIn();
+
             }
           });
         }
@@ -68,7 +69,6 @@ function Login({ handleLoggedIn }) {
         <img className="login-mobile__logo" src={mobileLogo} alt="logo" />
 
         <div className="login__form-container">
-
           {message && <div className="login__notification">{message}</div>}
           <h2 className="login__title">Bem-vindo à Easy Bucket</h2>
           <span className="login__error-message">{errorMessage}</span>
@@ -96,7 +96,10 @@ function Login({ handleLoggedIn }) {
               Entrar
             </button>
             <p className="login__register">
-              Ainda não é membro? Inscreva-se <Link to="/signup">aqui!</Link>
+              Ainda não é membro? Inscreva-se{' '}
+              <Link className="login__signup_link" to="/signup">
+                aqui!
+              </Link>
             </p>
           </form>
         </div>

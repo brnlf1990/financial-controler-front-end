@@ -100,7 +100,7 @@ function Register() {
               Entrar
             </button>
             <p className="register__to-login">
-              Já tem conta? Aperte <Link to="/signin">aqui!</Link> para fazer o
+              Já tem conta? Aperte <Link className="register__signin_link" to="/signin">aqui!</Link> para fazer o
               login!
             </p>
           </form>

@@ -6,7 +6,7 @@ function CurrentCost() {
   return (
     <CurrentCard
       type="current_cost"
-      title="Valor gasto no mês atual"
+      title="Valor gasto até o momento"
       value={totalCost}
     />
   );
